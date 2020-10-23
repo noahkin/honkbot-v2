@@ -1,0 +1,4 @@
+old/
+.vscode/
+__pycache__/
+deploy/
