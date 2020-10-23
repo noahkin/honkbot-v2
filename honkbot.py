@@ -1,7 +1,6 @@
 import discord
 import goose_cli
-
-token = "tokenGoesHere"
+from auth import token
 
 class Client(discord.Client):
     async def on_ready(self):
