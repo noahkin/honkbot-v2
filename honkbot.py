@@ -47,38 +47,41 @@ class Client(discord.Client):
         print('Message from {0.author}: {0.content}'.format(message))
         ## Various bot commands below:
         if message.author != self.user: # Needs to check dev instance as well
-            if 'kyle' in message.content: # prob kill this at some point?
+            if 'kyle' in message.content.lower(): # prob kill this at some point?
                 emoji = 'SexyKyle:388117155176120320'
                 await message.channel.send('kyle')
                 await message.add_reaction(emoji)
-            if message.content == 'BDAY' and bdayPerson == 'nobody' or message.content == 'bday' and bdayPerson == 'nobody':
+            if message.content.lower() == 'bday' and bdayPerson == 'nobody':
                 response = ('it aint nobodys bday bitch')
                 await message.channel.send(response)
-            elif message.content == 'BDAY' and bdayPerson != 'nobody' or message.content == 'bday' and bdayPerson != 'nobody':
+            elif message.content.lower() == 'bday' and bdayPerson != 'nobody':
                 response = ('HAPPY BDAY TO ' + bdayPerson + '!!!!!!!!  buy them shit')
                 await message.channel.send(response)
-            if message.content == 'NEXT BDAY' or message.content == 'next bday':
+            if message.content.lower() == 'next bday':
                 response = ('The next goose bday is ' + nextPerson + '\'s on ' + nextBday + '!!!!!!!!!!!!!!!!!!  Get hype bout it')
                 await message.channel.send(response)
-            if message.content == 'hey honkbot'or message.content == 'HEY HONKBOT':
+            if message.content.lower() == 'hey honkbot':
                 response = ('hey')
                 await message.channel.send(response)
                 time.sleep(3) # delay before honk
-            if 'honk' in message.content:
+            if 'honk' in message.content.lower():
                 await message.channel.send('honk')
      #####emoji reactions lmaooooooo
-            if 'repicy' in message.content:
-                emoji = 'repicy:644999601270685707'
-                await message.channel.send('repicy!')
+            if 'repicy' in message.content.lower():
+                emoji = 'a:repicy:644999601270685707'
+                await message.channel.send('rEpIcY!')
                 await message.add_reaction(emoji)
-            if 'cringe' in message.content:
+            if 'cringe' in message.content.lower():
                 emoji = 'kershrek:768886281773383762'
                 await message.add_reaction(emoji)
-            if 'smh' in message.content or 'smdh' in message.content:
+            if 'smh' in message.content.lower() or 'smdh' in message.content.lower():
                 emoji = 'smhmyhead:651848089224609793'
                 await message.add_reaction(emoji)
-            if 'nate' in message.content or 'Nate' in message.content:
+            if 'nate' in message.content.lower():
                 emoji = 'yetinate:520637149566205964'
+                await message.add_reaction(emoji)
+            if 'fuck yeah' in message.content.lower():
+                emoji = ':thicc:438569502637293568'
                 await message.add_reaction(emoji)
 
 
