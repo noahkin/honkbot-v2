@@ -83,7 +83,15 @@ class Client(discord.Client):
             if 'fuck yeah' in message.content.lower():
                 emoji = ':thicc:438569502637293568'
                 await message.add_reaction(emoji)
-
+            if 'bill' in message.content.lower():
+                emoji = ':bill:378712561832689674'
+                await message.add_reaction(emoji)
+            if 'michael' in message.content.lower():
+                emoji = ':mike:768901680787488810'
+                await message.add_reaction(emoji)
+            if 'goose' in message.content.lower():
+                emoji = ':goosechamp:551145779834781737'
+                await message.add_reaction(emoji)
 
 # Launch bot
 client = Client()
