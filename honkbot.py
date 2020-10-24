@@ -1,4 +1,5 @@
 import discord
+from discord.utils import get
 import goose_cli
 from datetime import datetime
 import time
@@ -9,7 +10,7 @@ from auth import token
 # Needs support for duplicate bdays
 data = [{'Name': 'Nate', 'Bday': '04-01'},{'Name': 'Bobby G', 'Bday': '08-14'},{'Name': 'Kelly', 'Bday': '02-18'},
         {'Name': 'Jake Medina', 'Bday': '12-12'},{'Name': 'Kaleb', 'Bday': '12-24'},{'Name': 'Jenni', 'Bday': '05-05'},
-        {'Name': 'Kyle', 'Bday': '05-01'},{'Name': 'Dan', 'Bday': '08-12'}, {'Name': 'Noah', 'Bday': '11-13'},{'Name': 'Bill', 'Bday': '05-07'},{'Name': 'Zack', 'Bday': '01-01'},{'Name': 'John', 'Bday': '01-01'}]
+        {'Name': 'Kyle', 'Bday': '05-01'},{'Name': 'Dan', 'Bday': '08-12'}, {'Name': 'Noah', 'Bday': '11-13'},{'Name': 'Bill', 'Bday': '05-07'},{'Name': 'Zack and John', 'Bday': '01-01'}]
 dateDict = []
 for i in range(len(data)):
      dateDict.append(data[i]['Bday'])
@@ -47,7 +48,9 @@ class Client(discord.Client):
         ## Various bot commands below:
         if message.author != self.user: # Needs to check dev instance as well
             if 'kyle' in message.content: # prob kill this at some point?
+                emoji = 'SexyKyle:388117155176120320'
                 await message.channel.send('kyle')
+                await message.add_reaction(emoji)
             if message.content == 'BDAY' and bdayPerson == 'nobody' or message.content == 'bday' and bdayPerson == 'nobody':
                 response = ('it aint nobodys bday bitch')
                 await message.channel.send(response)
@@ -63,8 +66,20 @@ class Client(discord.Client):
                 time.sleep(3) # delay before honk
             if 'honk' in message.content:
                 await message.channel.send('honk')
+     #####emoji reactions lmaooooooo
             if 'repicy' in message.content:
+                emoji = 'repicy:644999601270685707'
                 await message.channel.send('repicy!')
+                await message.add_reaction(emoji)
+            if 'cringe' in message.content:
+                emoji = 'kershrek:768886281773383762'
+                await message.add_reaction(emoji)
+            if 'smh' in message.content or 'smdh' in message.content:
+                emoji = 'smhmyhead:651848089224609793'
+                await message.add_reaction(emoji)
+            if 'nate' in message.content or 'Nate' in message.content:
+                emoji = 'yetinate:520637149566205964'
+                await message.add_reaction(emoji)
 
 
 # Launch bot
