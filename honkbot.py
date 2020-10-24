@@ -4,7 +4,9 @@ from datetime import datetime
 import time
 from auth import token
 
-### adding birthday list and bday functionality below -klb
+
+### Birthday Stuff
+# Needs support for duplicate bdays
 data = [{'Name': 'Nate', 'Bday': '04-01'},{'Name': 'Bobby G', 'Bday': '08-14'},{'Name': 'Kelly', 'Bday': '02-18'},
         {'Name': 'Jake Medina', 'Bday': '12-12'},{'Name': 'Kaleb', 'Bday': '12-24'},{'Name': 'Jenni', 'Bday': '05-05'},
         {'Name': 'Kyle', 'Bday': '05-01'},{'Name': 'Dan', 'Bday': '08-12'}, {'Name': 'Noah', 'Bday': '11-13'},{'Name': 'Bill', 'Bday': '05-07'},{'Name': 'Zack', 'Bday': '01-01'},{'Name': 'John', 'Bday': '01-01'}]
@@ -32,11 +34,14 @@ def birthday_knower(data):
      return bdayPerson, nextBday, nextPerson
 bdayPerson, nextBday, nextPerson = birthday_knower(data)
 
+
 class Client(discord.Client):
+    # Runs when bot has finished initializing
     async def on_ready(self):
         print('Logged on as {0}!'.format(self.user))
-        await goose_cli.run_cli(client)
+        await goose_cli.run_cli(client) # Run any relevant CLI args passed to honkbot
     
+    # Runs for each message in the server
     async def on_message(self, message):
         print('Message from {0.author}: {0.content}'.format(message))
         if message.author != self.user:
@@ -57,5 +62,8 @@ class Client(discord.Client):
                 time.sleep(3)
             if 'honk' in message.content:
                 await message.channel.send('honk')
+
+
+# Launch bot
 client = Client()
 client.run(token)
