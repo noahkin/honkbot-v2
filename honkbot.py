@@ -48,13 +48,13 @@ class Client(discord.Client):
         if message.author != self.user: # Needs to check dev instance as well
             if 'kyle' in message.content: # prob kill this at some point?
                 await message.channel.send('kyle')
-            if message.content == 'BDAY' and bdayPerson == 'nobody':
+            if message.content == 'BDAY' and bdayPerson == 'nobody' or message.content == 'bday' and bdayPerson == 'nobody':
                 response = ('it aint nobodys bday bitch')
                 await message.channel.send(response)
-            elif message.content == 'BDAY' and bdayPerson != 'nobody':
+            elif message.content == 'BDAY' and bdayPerson != 'nobody' or message.content == 'bday' and bdayPerson != 'nobody':
                 response = ('HAPPY BDAY TO ' + bdayPerson + '!!!!!!!!  buy them shit')
                 await message.channel.send(response)
-            if message.content == 'NEXT BDAY':
+            if message.content == 'NEXT BDAY' or message.content == 'next bday':
                 response = ('The next goose bday is ' + nextPerson + '\'s on ' + nextBday + '!!!!!!!!!!!!!!!!!!  Get hype bout it')
                 await message.channel.send(response)
             if message.content == 'hey honkbot'or message.content == 'HEY HONKBOT':
@@ -63,6 +63,8 @@ class Client(discord.Client):
                 time.sleep(3) # delay before honk
             if 'honk' in message.content:
                 await message.channel.send('honk')
+            if 'repicy' in message.content:
+                await message.channel.send('repicy!')
 
 
 # Launch bot
