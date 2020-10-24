@@ -44,8 +44,9 @@ class Client(discord.Client):
     # Runs for each message in the server
     async def on_message(self, message):
         print('Message from {0.author}: {0.content}'.format(message))
-        if message.author != self.user:
-            if 'kyle' in message.content:
+        ## Various bot commands below:
+        if message.author != self.user: # Needs to check dev instance as well
+            if 'kyle' in message.content: # prob kill this at some point?
                 await message.channel.send('kyle')
             if message.content == 'BDAY' and bdayPerson == 'nobody':
                 response = ('it aint nobodys bday bitch')
@@ -59,7 +60,7 @@ class Client(discord.Client):
             if message.content == 'hey honkbot'or message.content == 'HEY HONKBOT':
                 response = ('hey')
                 await message.channel.send(response)
-                time.sleep(3)
+                time.sleep(3) # delay before honk
             if 'honk' in message.content:
                 await message.channel.send('honk')
 
