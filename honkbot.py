@@ -28,5 +28,4 @@ class Client(discord.Client):
             await honk.send_honk(msg)
 # Launch bot
 client = Client()
-print(token)
 client.run(token)
