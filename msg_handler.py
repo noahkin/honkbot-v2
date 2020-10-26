@@ -1,3 +1,4 @@
+import discord
 from behaviors.bday import Bday
 from behaviors.honk import Honk
 from behaviors.emoji import Emoji
@@ -14,7 +15,7 @@ class MsgHandler:
             await bday.send_bday(self.message, self.msgContent)
         elif '!help' in self.msgContent:
             help = Help(self.message)
-            await help.get_help()
+            await help.send_help(self.message)
         else:
             emoji = Emoji()
             honk = Honk()
