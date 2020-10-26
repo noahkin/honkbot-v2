@@ -25,12 +25,12 @@ class Bday:
         dict.sort()
         return dict
 
-    def get_response(self, message):
+    def get_response(self, msgContent):
         today = datetime.today()
         today = today.strftime('%m-%d')
-        if message == 'bday':
+        if msgContent == '!bday':
             return self.get_current_bday_response(self.bdays, today)
-        elif message == 'next bday':
+        elif msgContent == '!bday next':
             return self.get_nxt_bday_response(self.bdays, today)
         else:
             return False
@@ -46,8 +46,8 @@ class Bday:
         nextPerson = itemgetter('Name')(next((x for x in self.bdays if x['Bday'] == nextBday)))
         return f'The next goose bday is {nextPerson}\'s on {nextBday}!!!!!!!!!!!!!!!!!! Get hype bout it'
 
-    async def send_bday(self, message):
-        response = self.get_response(message)
+    async def send_bday(self, message, msgContent):
+        response = self.get_response(msgContent)
         if response:
             await message.channel.send(response)
 

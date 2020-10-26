@@ -16,16 +16,16 @@ class Honk:
         'hEIL hONkLER',
     ]
 
-    def get_response(self, message):
-        if message == 'hey honkbot':
+    def get_response(self, msgContent):
+        if msgContent == 'hey honkbot':
             time.sleep(3) # delay before honk
             return 'hey'
-        elif 'honk' in message:
+        elif 'honk' in msgContent:
             return random.choice(self.honkBank)
         else:
             return False
 
-    async def send_honk(self, message):
-        response = self.get_response(message)
+    async def send_honk(self, message, msgContent):
+        response = self.get_response(msgContent)
         if response:
             await message.channel.send(response)

@@ -11,12 +11,12 @@ class Emoji:
         {'name': 'goose', 'code': ':goosechamp:551145779834781737', 'response': 'honk'},
         {'name': 'kyle', 'code': 'SexyKyle:388117155176120320', 'response': 'kyle'},]
 
-    def get_emoji(self, message):
-        emojiData = next((x for x in self.emojis if x['name'] == message), None)
+    def get_emoji(self, msgContent):
+        emojiData = next((x for x in self.emojis if x['name'] == msgContent), None)
         return emojiData
 
-    async def send_emoji(self, message):
-        emoji = self.get_emoji(message)
+    async def send_emoji(self, message, msgContent):
+        emoji = self.get_emoji(msgContent)
         if emoji:
             await message.channel.send(emoji['response'])
             await message.add_reaction(emoji['code'])

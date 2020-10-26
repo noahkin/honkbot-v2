@@ -4,13 +4,8 @@ import goose_cli
 from auth import token
 from datetime import datetime
 import time
-from behaviors.emoji import Emoji
-from behaviors.bday import Bday
-from behaviors.honk import Honk
+from msg_handler import MsgHandler
 
-emoji = Emoji()
-bday = Bday()
-honk = Honk()
 class Client(discord.Client):
     # Runs when bot has finished initializing
     async def on_ready(self):
@@ -22,10 +17,8 @@ class Client(discord.Client):
         print('Message from {0.author}: {0.content}'.format(message))
         ## Various bot commands below:
         if message.author != self.user: # Needs to check dev instance as well
-            msg = message.content.lower()
-            await emoji.send_emoji(msg)
-            await bday.send_bday(msg)
-            await honk.send_honk(msg)
+            msgHandler = MsgHandler(message)
+            msgHandler.delegate_behavior()
 # Launch bot
 client = Client()
 client.run(token)
