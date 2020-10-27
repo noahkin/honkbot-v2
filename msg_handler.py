@@ -10,10 +10,10 @@ class MsgHandler:
         self.msgContent = message.content.lower()
 
     async def delegate_behavior(self):
-        if '!bday' in self.msgContent:
+        if '^bday' in self.msgContent:
             bday = Bday()
             await bday.send_bday(self.message, self.msgContent)
-        elif '!help' in self.msgContent:
+        elif '^help' in self.msgContent:
             help = Help()
             await help.send_help(self.message)
         else:
