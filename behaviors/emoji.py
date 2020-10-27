@@ -12,7 +12,7 @@ class Emoji:
         {'name': 'kyle', 'code': 'SexyKyle:388117155176120320', 'response': 'kyle'},]
 
     def get_emoji(self, msgContent):
-        emojiData = next((x for x in self.emojis if x['name'] == msgContent), None)
+        emojiData = next((x for x in self.emojis if x['name'] in msgContent), None)
         return emojiData
 
     async def send_emoji(self, message, msgContent):
