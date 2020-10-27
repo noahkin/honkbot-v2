@@ -9,7 +9,10 @@ class Emoji:
         {'name': 'bill', 'code': ':bill:378712561832689674', 'response': '#1 Power-Bottom in TX'},
         {'name': 'michael', 'code': ':mike:768901680787488810', 'response': 'michael'},
         {'name': 'goose', 'code': ':goosechamp:551145779834781737', 'response': 'honk'},
-        {'name': 'kyle', 'code': 'SexyKyle:388117155176120320', 'response': 'kyle'},]
+        {'name': 'kyle', 'code': 'SexyKyle:388117155176120320', 'response': None},
+        {'name': 'society', 'code': ':imdajokababy:563930572813107200', 'response': None},
+        {'name': 'haha', 'code': ':haha:525009386867916830', 'response': None},
+        {'name': 'zzz', 'code': ':kylesnooze:536758017169817612', 'response': None}]
 
     def get_emoji(self, msgContent):
         emojiData = next((x for x in self.emojis if x['name'] in msgContent), None)
@@ -18,5 +21,7 @@ class Emoji:
     async def send_emoji(self, message, msgContent):
         emoji = self.get_emoji(msgContent)
         if emoji:
-            await message.channel.send(emoji['response'])
-            await message.add_reaction(emoji['code'])
+            if emoji['response']:
+                await message.channel.send(emoji['response'])
+            if emoji['code']:
+                await message.add_reaction(emoji['code'])
