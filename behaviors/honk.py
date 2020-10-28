@@ -56,7 +56,7 @@ class Honk:
         elif charCount >= 91 and charCount <= 100:
             return 'H O N K A D O N K I N M Y B A D O N K A D O N K ! ! !'
         elif charCount > 100:
-            file = discord.File('C:/Users/jisana3/Desktop/New folder (2)/honkbot-v2/important_files/impressed_goose.jpg', filename='impressed_goose.jpg')
+            file = discord.File('important_files/impressed_goose.jpg', filename='impressed_goose.jpg')
             return file
         else:
             return 'zzz'
