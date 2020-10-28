@@ -17,6 +17,8 @@ class Honk:
         'u down 4 this down?',
         'HONK HONK HONNNNKKKKKKKK OH FUCK HONK ME AHHHH HONKKKKKK',
         'hEIL hONkLER',
+        'I\'m gonna hoooooooooooooonk',
+        'V formation yall'
     ]
 
     def get_response(self, msgContent):

@@ -2,3 +2,5 @@ old/
 .vscode/
 __pycache__/
 deploy/
+auth.py
+dev/

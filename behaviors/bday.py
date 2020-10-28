@@ -28,9 +28,9 @@ class Bday:
     def get_response(self, msgContent):
         today = datetime.today()
         today = today.strftime('%m-%d')
-        if msgContent == '!bday':
+        if msgContent == '^bday':
             return self.get_current_bday_response(self.bdays, today)
-        elif msgContent == '!bday next':
+        elif msgContent == '^bday next':
             return self.get_nxt_bday_response(self.bdays, today)
         else:
             return False
