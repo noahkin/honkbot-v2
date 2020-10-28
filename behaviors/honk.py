@@ -64,4 +64,7 @@ class Honk:
     async def send_honk(self, message, msgContent):
         response = self.get_response(msgContent)
         if response:
-            await message.channel.send(response)
+            if type(response) == discord.file.File: # for image response
+                await message.channel.send(file=response)
+            else:
+                await message.channel.send(response)
