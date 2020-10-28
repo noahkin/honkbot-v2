@@ -3,6 +3,7 @@ from behaviors.bday import Bday
 from behaviors.honk import Honk
 from behaviors.emoji import Emoji
 from behaviors.help import Help
+from behaviors.streams import Streams
 
 class MsgHandler:
     def __init__(self, message):
@@ -13,6 +14,9 @@ class MsgHandler:
         if '^bday' in self.msgContent:
             bday = Bday()
             await bday.send_bday(self.message, self.msgContent)
+        elif '^stream' in self.msgContent:
+            streams = Streams()
+            await streams.send_stream(self.message, self.msgContent)
         elif '^help' in self.msgContent:
             help = Help()
             await help.send_help(self.message)

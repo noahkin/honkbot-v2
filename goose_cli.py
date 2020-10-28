@@ -13,4 +13,5 @@ async def run_cli(client):
                 message += sys.argv[i]
                 message += ' '
             channel = discord.utils.get(client.get_all_channels(), guild__name='Gooseboys', name=sys.argv[2])
+            print(channel)
             await channel.send(message)
