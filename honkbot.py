@@ -18,6 +18,7 @@ class Client(discord.Client):
         if message.author != self.user: # Needs to check dev instance as well
             msgHandler = MsgHandler(message)
             await msgHandler.delegate_behavior() # manages all honk bot actions
+            
 # Launch bot
 client = Client()
 client.run(token)
