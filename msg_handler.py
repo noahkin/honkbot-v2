@@ -4,6 +4,7 @@ from behaviors.honk import Honk
 from behaviors.emoji import Emoji
 from behaviors.help import Help
 from behaviors.streams import Streams
+from behaviors.scripture import Scripture
 
 class MsgHandler:
     def __init__(self, message):
@@ -17,6 +18,9 @@ class MsgHandler:
         elif '^stream' in self.msgContent:
             streams = Streams()
             await streams.send_stream(self.message, self.msgContent)
+        elif '^preach' in self.msgContent:
+            scripture = Scripture()
+            await scripture.send_verse(self.message, self.msgContent)
         elif '^help' in self.msgContent:
             help = Help()
             await help.send_help(self.message)
