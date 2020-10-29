@@ -7,7 +7,8 @@ class Streams:
         {'name': 'bear', 'link': 'https://explore.org/livecams/brown-bears/brown-bear-salmon-cam-brooks-falls'},
         {'name': 'jelly', 'link': 'https://explore.org/livecams/under-the-water/seajelly-cam'},
         {'name': 'space', 'link': 'https://www.youtube.com/watch?v=DDU-rZs-Ic4&feature=emb_rel_err'},
-        {'name': 'gorilla', 'link': 'https://explore.org/livecams/grace-gorillas/gorilla-forest-corridor'}
+        {'name': 'gorilla', 'link': 'https://explore.org/livecams/grace-gorillas/gorilla-forest-corridor'},
+        {'name': 'lofi', 'link': 'https://www.youtube.com/watch?v=5qap5aO4i9A'}
     ]
 
     def get_stream(self, msgContent):
