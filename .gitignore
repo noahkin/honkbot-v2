@@ -4,3 +4,6 @@ __pycache__/
 deploy/
 auth.py
 dev/
+.idea/
+/behaviors__pycache__/
+*.py[cod]
