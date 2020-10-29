@@ -1,7 +1,7 @@
 import discord
 
 class Emoji:
-    emojis = [{'name': 'repicy', 'code': 'a:repicy:644999601270685707', 'response': 'rEpIcY!'},
+    emojiBank = [{'name': 'repicy', 'code': 'a:repicy:644999601270685707', 'response': 'rEpIcY!'},
         {'name': 'cringe', 'code': 'kershrek:768886281773383762', 'response': 'cringe bro'},
         {'name': 'smh', 'code': 'smhmyhead:651848089224609793', 'response': 'my head'},
         {'name': 'nate', 'code': 'yetinate:520637149566205964', 'response': 'schweeeee'},
@@ -17,7 +17,7 @@ class Emoji:
         {'name': 'stars', 'code': ':reaugh:745328891857469470', 'response': 'LET\'S GO STARS!!'}]
 
     def get_emoji(self, msgContent):
-        emojiData = next((x for x in self.emojis if x['name'] in msgContent), None)
+        emojiData = next((x for x in self.emojiBank if x['name'] in msgContent), None)
         return emojiData
 
     async def send_emoji(self, message, msgContent):
