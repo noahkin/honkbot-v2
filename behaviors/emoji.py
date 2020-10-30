@@ -14,7 +14,8 @@ class Emoji:
         {'name': 'society', 'code': ':imdajokababy:563930572813107200', 'response': None},
         {'name': 'haha', 'code': ':haha:525009386867916830', 'response': None},
         {'name': 'zzz', 'code': ':kylesnooze:536758017169817612', 'response': None},
-        {'name': 'stars', 'code': ':reaugh:745328891857469470', 'response': 'LET\'S GO STARS!!'}]
+        {'name': 'stars', 'code': ':reaugh:745328891857469470', 'response': 'LET\'S GO STARS!!'},
+        {'name': 'cronge', 'code': ':badlookelmo:532993596333490186', 'response': None}]
 
     def get_emoji(self, msgContent):
         emojiData = next((x for x in self.emojiBank if x['name'] in msgContent), None)
