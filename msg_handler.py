@@ -27,11 +27,11 @@ class MsgHandler:
             await help.send_help(self.message)
         elif self.message.attachments:
             # Check if there is a goose in the image:
-            print(self.message.attachments[0].url)
-            print(type(self.message.attachments[0].url))
-            print(self.gooseid.check_for_goose(self.message.attachments[0].url))
-            if self.gooseid.check_for_goose(self.message.attachments[0].url):
+            img_class = self.gooseid.check_url(self.message.attachments[0].url).replace('_', ' ')
+            if img_class == 'goose':
                 await self.gooseid.goose_reaction(self.message, self.msgContent)
+            else:
+                await self.gooseid.other_reaction(self.message, self.msgContent, img_class)
         else:
             emoji = Emoji()
             honk = Honk()

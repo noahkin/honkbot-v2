@@ -32,16 +32,16 @@ class GooseID:
         return self.imagenet_class_index[predicted_idx]
 
 
-    def is_goose(self, img_bytes):
+    def get_class(self, img_bytes):
         class_id, class_name = self.get_prediction(image_bytes=img_bytes)
-        print(f'Image Class: {class_name}')
-        return class_name == 'goose'
+        return class_name
 
-    def check_for_goose(self, url):
+    def check_url(self, url):
         try:
             r = requests.get(url, stream = True)
             if r.status_code == 200:
-                return self.is_goose(r.content)
+                print('request error')
+                return self.get_class(r.content)
             return False
         except Exception as e:
             print(e)
@@ -49,3 +49,6 @@ class GooseID:
             
     async def goose_reaction(self, message, msgContent):
         await message.channel.send('o shit is that a pic of a goose?')
+
+    async def other_reaction(self, message, msgContent, class_name):
+        await message.channel.send("yo that's a " + class_name)
