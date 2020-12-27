@@ -7,3 +7,4 @@ dev/
 .idea/
 /behaviors__pycache__/
 *.py[cod]
+neural/__pycache__/

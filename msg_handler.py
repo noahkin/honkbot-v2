@@ -7,9 +7,10 @@ from behaviors.streams import Streams
 from behaviors.scripture import Scripture
 
 class MsgHandler:
-    def __init__(self, message):
+    def __init__(self, message, gooseid):
         self.message = message
         self.msgContent = message.content.lower()
+        self.gooseid = gooseid
 
     async def delegate_behavior(self):
         if '^bday' in self.msgContent:
@@ -24,6 +25,13 @@ class MsgHandler:
         elif '^help' in self.msgContent:
             help = Help()
             await help.send_help(self.message)
+        elif self.message.attachments:
+            # Check if there is a goose in the image:
+            print(self.message.attachments[0].url)
+            print(type(self.message.attachments[0].url))
+            print(self.gooseid.check_for_goose(self.message.attachments[0].url))
+            if self.gooseid.check_for_goose(self.message.attachments[0].url):
+                await self.gooseid.goose_reaction(self.message, self.msgContent)
         else:
             emoji = Emoji()
             honk = Honk()
