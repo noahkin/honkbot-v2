@@ -5,17 +5,21 @@ from behaviors.emoji import Emoji
 from behaviors.help import Help
 from behaviors.streams import Streams
 from behaviors.scripture import Scripture
+from neural.talkback import TalkBack
 
 class MsgHandler:
-    def __init__(self, message, gooseid):
+    def __init__(self, message, gooseid, talkback):
         self.message = message
         self.msgContent = message.content.lower()
         self.gooseid = gooseid
+        self.talkback = talkback
 
     async def delegate_behavior(self):
         if '^bday' in self.msgContent:
             bday = Bday()
             await bday.send_bday(self.message, self.msgContent)
+        elif '^^' in self.msgContent:
+            await self.talkback.respond(self.message, self.msgContent)
         elif '^stream' in self.msgContent:
             streams = Streams()
             await streams.send_stream(self.message, self.msgContent)
