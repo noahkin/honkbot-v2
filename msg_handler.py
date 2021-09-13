@@ -5,6 +5,7 @@ from behaviors.emoji import Emoji
 from behaviors.help import Help
 from behaviors.streams import Streams
 from behaviors.scripture import Scripture
+from behaviors.iHardlyKnowHer import IHardlyKnowHer
 from neural.talkback import TalkBack
 
 class MsgHandler:
@@ -39,5 +40,7 @@ class MsgHandler:
         else:
             emoji = Emoji()
             honk = Honk()
+            iHardlyKnowHer = IHardlyKnowHer()
             await emoji.send_emoji(self.message, self.msgContent)
             await honk.send_honk(self.message, self.msgContent)
+            await iHardlyKnowHer.send(self.message, self.msgContent)
