@@ -16,7 +16,8 @@ class Bday:
         {'Name': 'Bill', 'Bday': '05-07'},
         {'Name': 'Zack', 'Bday': '01-01'},
         {'Name': 'John', 'Bday': '01-01'},
-        {'Name': 'Erin', 'Bday': '09-20'},]    
+        {'Name': 'Erin', 'Bday': '09-20'},
+        {'Name': 'Olen', 'Bday': '08-18'}]    
 
     def build_date_dict(self, bdays):
         dict = []
