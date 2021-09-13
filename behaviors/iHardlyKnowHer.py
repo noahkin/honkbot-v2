@@ -1,6 +1,6 @@
 class IHardlyKnowHer:
     def build_response(self, word):
-        word = word.captialize()
+        word = word.capitalize()
         return f"{word}? I hardly know her!"
 
     async def send(self, message, msgContent):
