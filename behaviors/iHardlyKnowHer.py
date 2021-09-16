@@ -1,25 +1,27 @@
 class IHardlyKnowHer:
-    global exclusions = [
-        "together",
-        "whatever",
-        "forever",
-        "ever",
-        "never",
-        "her",
-        "er",
-        "cancer",
-        "over",
-        "other",
-        "after",
-        "later",
-        "rather",
-        "sister",
-        "brother",
-        "father",
-        "mother",
-        "whether",
-        "either"
-        ]
+    global exclusions
+        exclusions =
+            [
+                "together",
+                "whatever",
+                "forever",
+                "ever",
+                "never",
+                "her",
+                "er",
+                "cancer",
+                "over",
+                "other",
+                "after",
+                "later",
+                "rather",
+                "sister",
+                "brother",
+                "father",
+                "mother",
+                "whether",
+                "either"
+            ]
 
     def build_response(self, word):
         word = word.captialize()
