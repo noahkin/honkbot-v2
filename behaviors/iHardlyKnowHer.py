@@ -19,8 +19,12 @@ class IHardlyKnowHer:
                 "brother",
                 "father",
                 "mother",
+                "grandmother",
+                "grandfather",
                 "whether",
-                "either"
+                "either",
+                "another",
+                "super",
             ]
 
     def build_response(self, word):
